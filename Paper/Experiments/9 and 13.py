@@ -1,4 +1,3 @@
-#RNN best
 import os
 import sys
 import numpy as np
@@ -122,20 +121,15 @@ encoder = tflearn.input_data(shape=[None,5, 13*44+1])
 
 encoder = tflearn.dropout(encoder,0.9)
 encoder = tflearn.dropout(encoder,0.2)
-encoder = tflearn.layers.recurrent.simple_rnn(encoder, 128,return_seq=True, activation='relu')#,dynamic=True
-#encoder = tflearn.layers.recurrent.simple_rnn(encoder, 100,return_seq=True, activation='relu')#,dynamic=True
-encoder = tflearn.layers.recurrent.simple_rnn(encoder, 80,return_seq=False, activation='leakyrelu')#,dynamic=True #,dropout=0.5
-#encoder = tflearn.dropout(encoder,0.3)
+encoder = tflearn.layers.recurrent.simple_rnn(encoder, 128,return_seq=True, activation='relu')
+encoder = tflearn.layers.recurrent.simple_rnn(encoder, 80,return_seq=False, activation='leakyrelu')
 encoder = tflearn.fully_connected(encoder, 40,activation='crelu')
-'''decoder = tflearn.fully_connected(encoder, 80,activation='crelu')
-decoder = tflearn.fully_connected(decoder, 128,activation='crelu')'''
 decoder = tflearn.fully_connected(encoder, int(572), activation='linear')
 net = tflearn.regression(decoder, optimizer='adam', learning_rate=0.0007,loss='mean_square', metric=r2)
 model = tflearn.DNN(net)
 model.fit(X_ab, Y_ab, n_epoch=1500,run_id="auto_encoder", batch_size=128,shuffle=True, show_metric=True)
 
 model.save('Save-Models/Model8-tflearn.tflearn')
-
 
 encoding_model = tflearn.DNN(encoder, session=model.session)
 
@@ -203,7 +197,7 @@ for j in range(len(V)):
 
 
 tamanho = len(V)    
-print("Experimento 3(Locutores conhecidos portugues:",file=arq)
+print("Experimento 13(Locutores conhecidos portugues:",file=arq)
 print("acertou: ", acertou,"de: ",tamanho,file=arq) 
 print('acuracy:',acertou/tamanho,file=arq)
 print('Segmentos -- Treino:',len(X_ab),' Teste:',len(Xtest_ab),file=arq)
@@ -335,7 +329,7 @@ for j in range(len(V)):
 
 
 tamanho = len(V)    
-print("Experimento 4(Locutores não conhecidos portugues:",file=arq)
+print("Experimento 9(Locutores não conhecidos portugues:",file=arq)
 print("acertou: ", acertou,"de: ",tamanho,file=arq) 
 print('acuracy:',acertou/tamanho,file=arq)
 print('Segmentos -- Treino:',len(X_ab),' Teste:',len(X_cd),file=arq)
@@ -363,77 +357,6 @@ for i in range(len(X_cd)):
 r2 = r2/len(X_cd)
 
 print('r2_score: ',r2,file=arq)
-
-'''### Experimento 6: LibreSpeech
-
-with open('Mfcc-Save/Base3-Cadastrados.txt', 'rb') as f:
-        cadastrados_base3 = pickle.load(f)
-
-
-with open('Mfcc-Save/Base3-Pessoas.txt', 'rb') as f:
-        pessoas_base3 = pickle.load(f)
-
-        
-
-
-
-
-X = []
-
-i=0
-
-while i <len(cadastrados_base3):
-                            
-            X.append([encoding_model.predict([cadastrados_base3[i][0]])[0],cadastrados_base3[i][1]])
-            i = i+1          
-
-
-
-acertou = 0
-tamanho = 0
-V = []
-
-for q in range(len(pessoas_base3)):            
-                        
-        a=[encoding_model.predict([pessoas_base3[q][0]])[0],pessoas_base3[q][1]]
-
-        V.append(a)
-                        
-        
-
-        
-        
-        
-posI = 0
-
-for j in range(len(V)):
-        
-        menordist = math.inf
-        i =0
-            
-        while i < len(X):
-                
-                distancia = np.sqrt(sum([(xi-yi)**2 for xi,yi in zip(V[j][0],X[i][0])]))
-                
-                if distancia <  menordist:
-                    menordist = distancia
-                    posI= i
-                i=i+1
-        
-        
-        if(X[posI][1] == V[j][1]):
-                acertou = acertou +1
-                
-
-       
-
-
-tamanho = len(V)    
-print('Base3(Locutores Librespeech):',file=arq)
-print("acertou: ", acertou,"de: ",tamanho,file=arq) 
-print('acuracy:',acertou/tamanho,file=arq)
-print('Segmentos -- Treino:',len(X_ab),' Teste:',len(pessoas_base3),file=arq)'''
-
 
 
 

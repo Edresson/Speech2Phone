@@ -156,7 +156,7 @@ for j in range(len(V)):
 
 
 tamanho = len(V)    
-print("Experimento 3(Locutores conhecidos portugues:",file=arq)
+print("Experimento 11(Locutores conhecidos portugues:",file=arq)
 print("acertou: ", acertou,"de: ",tamanho,file=arq) 
 print('acuracy:',acertou/tamanho,file=arq)
 print('Segmentos -- Treino:',len(X_ab),' Teste:',len(Xtest_ab),file=arq)
@@ -280,7 +280,7 @@ for j in range(len(V)):
 
 
 tamanho = len(V)    
-print("Experimento 4(Locutores não conhecidos portugues:",file=arq)
+print("Experimento 5(Locutores não conhecidos portugues:",file=arq)
 print("acertou: ", acertou,"de: ",tamanho,file=arq) 
 print('acuracy:',acertou/tamanho,file=arq)
 print('Segmentos -- Treino:',len(X_ab),' Teste:',len(X_cd),file=arq)

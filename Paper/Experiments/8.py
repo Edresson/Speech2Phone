@@ -120,33 +120,19 @@ encoder = input_data(shape=(None, 16, 200,1))
 encoder = tflearn.layers.core.dropout (encoder,0.8)
 encoder = conv_2d(encoder, 16, 7, activation='crelu')
 print(encoder.get_shape,file=arq)
-#encoder = dropout(encoder, 0.8)
 encoder = max_pool_2d(encoder, [1,5])
-
 # 16x40
 print(encoder.get_shape,file=arq)
 encoder = conv_2d(encoder, 16, 7, activation='crelu')
 encoder = max_pool_2d(encoder, [1,2])
-#encoder = tflearn.layers.core.dropout (encoder,0.8)
 # 16x20
 print(encoder.get_shape,file=arq)
 encoder = conv_2d(encoder, 8, 7, activation='crelu')
 encoder = max_pool_2d(encoder, [2,2])
-#encoder = local_response_normalization(encoder) 
 # 8x10
-
 encoder = conv_2d(encoder, 1, 7, activation='crelu')
-
-#encoder = max_pool_2d(encoder, [2,1])
 print(encoder.get_shape,file=arq)
 encoder =tflearn.layers.normalization.batch_normalization (encoder)
-
-# 4x4
-# importante: 5 filtros
-print(encoder.get_shape,file=arq)
-
-
-        
 # 16x64
 decoder = fully_connected(encoder, 40, activation='relu')
 
@@ -213,13 +199,8 @@ for j in range(len(V)):
 
 
 tamanho = len(V)    
-print("Experimento 3(Locutores conhecidos portugues:",file=arq)
-print("acertou: ", acertou,"de: ",tamanho,file=arq) 
-print('acuracy:',acertou/tamanho,file=arq)
-print('Segmentos -- Treino:',len(X_ab),' Teste:',len(Xtest_ab),file=arq)
 
-
-print("Experimento 3(Locutores conhecidos portugues:")
+print("Experimento 8(Locutores conhecidos portugues:")
 print("acertou: ", acertou,"de: ",tamanho) 
 print('acuracy:',acertou/tamanho)
 print('Segmentos -- Treino:',len(X_ab),' Teste:',len(Xtest_ab))
@@ -358,15 +339,10 @@ for j in range(len(V)):
 
 
 tamanho = len(V)    
-print("Experimento 4(Locutores não conhecidos portugues:",file=arq)
-print("acertou: ", acertou,"de: ",tamanho,file=arq) 
-print('acuracy:',acertou/tamanho,file=arq)
-print('Segmentos -- Treino:',len(X_ab),' Teste:',len(X_cd),file=arq)
 
 
 
-
-print("Experimento 4(Locutores não conhecidos portugues:")
+print("Experimento 8 (Locutores não conhecidos portugues:")
 print("acertou: ", acertou,"de: ",tamanho) 
 print('acuracy:',acertou/tamanho)
 print('Segmentos -- Treino:',len(X_ab),' Teste:',len(X_cd))

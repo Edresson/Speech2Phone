@@ -56,13 +56,9 @@ while i <len(audio_files):
     a = mfcc(sig, samplerate=22050, numcep = 13)
     b = GmM.predict(a)[0]
     print(b , nome)
-    if(str(b) == str(nome)):
-                             
+    if(str(b) == str(nome)):                
         acertou = acertou +1
     i=i+1
-
-
-
 
 
 print("acertou: ", acertou,"de: ",tamanho) 

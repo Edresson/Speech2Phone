@@ -1,7 +1,6 @@
 #!/usr/bin/env PYTHONIOENCODING="utf-8" python
 import random
 random.seed(5)
-
 import tflearn
 import os
 import sys
@@ -10,8 +9,7 @@ import numpy as np
 import pickle
 
 working =''
-#print(number_classes,speakers)
-# create the MFCC arrays from the data for training
+
 
 
         
@@ -70,8 +68,7 @@ try:
 
 except:
     print("Base corrompida ou inexistente, verifique")
-    os.exit()
-
+    exit()
 
 net = tflearn.input_data(shape=[None, 13,216]) #Passando a data para o tf, 13 = n_mfcc; 44 = 1 segundo segment wave audio; None: o primeiro elemento deve ser None representando, o tamanho do lote.
 net = tflearn.dropout(net, 0.6)

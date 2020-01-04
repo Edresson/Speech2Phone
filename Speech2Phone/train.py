@@ -33,7 +33,8 @@ with open('Mfcc-Save/X_b_treino.pickle', 'rb') as f:
 
 with open('Mfcc-Save/X_c_treino.pickle', 'rb') as f:
         X4 = pickle.load(f)
-    
+
+        
 with open('Mfcc-Save/X_c_teste.pickle', 'rb') as f:
         Xt4 = pickle.load(f)
 
@@ -108,7 +109,7 @@ net = tflearn.regression(decoder, optimizer='adam', learning_rate=0.0007,loss='m
 model = tflearn.DNN(net)
 model.fit(X_ab, Y_ab, n_epoch=1000,run_id="auto_encoder", batch_size=128,shuffle=True, show_metric=False)
 
-model.save('Save-Models/Model3-Best.tflearn')
+model.save('Save-Models/Model4-Best.tflearn')
 
 
 encoding_model = tflearn.DNN(encoder, session=model.session)

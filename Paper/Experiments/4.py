@@ -16,12 +16,7 @@ import librosa
 import numpy as np
 import pickle
 
-working =''
-#print(number_classes,speakers)
-# create the MFCC arrays from the data for training
 
-
-        
 try:
     
     with open('Mfcc-Save/X_a_treino.pickle', 'rb') as f:
@@ -71,13 +66,10 @@ try:
             Aux[i] = Xtest[i][0]
 
     Xtest= Aux
-    
-
-
 
 except:
     print("Base corrompida ou inexistente, verifique")
-    os.exit()
+    exit()
 
 encoder = tflearn.input_data(shape=[None, 13,216])
 encoder = tflearn.dropout(encoder,0.6)
