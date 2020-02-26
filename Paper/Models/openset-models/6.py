@@ -31,16 +31,36 @@ arch = [
 
     to_Conv("conv4", "7x7", 1, offset="(14,0,0)", to="(0,0,0)",width=1, height=4, depth=12, caption="Conv CReLU" ),
     to_connection("maxpool3","conv4"),
-
+    
     to_Dropout( "dp1", dp_rate="BNorm", offset="(16,0.0,0)", to="(0,0,0)", width=1.5, height=3, depth=25, caption="", Color='\LnormDropoutColor'),
 
+    
+
     to_connection("conv4","dp1"),
-    to_Dense("dense2", 40 ,offset="(18,0,0)", caption="FC ReLU",depth=25,Color ="\FcReluColor" ),
-    #to_SoftMax("soft2", 10 ,"(5,0,0)", caption="SoftMax"  ),
-    to_connection("dp1","dense2"),
-    to_Dense("dense3", 572 ,offset="(21,0,0)", caption="FC Linear",Color ="\FcLinearColor",depth=60 ),
-    to_connection("dense2","dense3"),
-    to_output( '../images/outpu-a.png',width=2, height=4,to='(21,1.1,-2)' ),
+
+    
+    to_Conv("conv8", "7x7", 8, offset="(18,0,0)", to="(0,0,0)",width=1, height=4, depth=12, caption="Conv CReLU" ),
+    to_connection("dp1","conv8"),
+    
+    to_UnPool("unpool3",zlabel='Upsampling 2x2', offset="(20,0,0)",width=1, height=8, depth=24, caption=""),
+    to_connection("conv8","unpool3"),
+    
+    to_Conv("conv5", "7x7", 16, offset="(23,0,0)", to="(0,0,0)",width=1, height=8, depth=24, caption="Conv CReLU" ),
+    to_connection("unpool3","conv5"),
+    
+    to_UnPool("unpool4",zlabel='Upsampling 1x1', offset="(25,0,0)",width=1, height=9, depth=25, caption=""),
+    to_connection("conv5","unpool4"),
+
+    to_Conv("conv6", "7x7", 16, offset="(28,0,0)", to="(0,0,0)",width=1, height=9, depth=25, caption="Conv CReLU" ),
+    to_connection("unpool4","conv6"),
+    
+    to_UnPool("unpool5",zlabel='Upsampling 1x2', offset="(30,0,0)",width=1, height=9, depth=30, caption=""),
+    to_connection("conv5","unpool5"),
+
+    
+    to_Conv("conv7", "7x7", 1, offset="(32,0,0)", to="(0,0,0)",width=1, height=8, depth=24, caption="Conv CReLU" ),
+    to_connection("unpool5","conv7"),
+    to_output( '../images/outpu-a.png',width=2, height=4,to='(32,1.0,-2)' ),
     #to_connection("dense1", "soft1"),  
     #to_connection("pool2", "soft1"),    
     to_end()
