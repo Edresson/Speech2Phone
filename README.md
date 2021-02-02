@@ -1,7 +1,5 @@
 # Speech2Phone
-This is the official implementation of the  paper *Speech2Phone: A Multilingual and Text Independent Speaker Identification Model*
-
-*Speech2Phone* is a multilingual, text-independent speaker identification system. In addition, the embeddings extracted from this model can be used to represent speakers in speech synthesis systems, speech cloning and voice transfer between languages.
+This is the official implementation of the  paper *Speech2Phone: A new and efficient method for training speaker recognition models*
 
 In this repository the Paper directory has the implementation of all the experiments and topologies explored in the article.
   The Speech2Phone directory presents the implementation and checkpoints of the best model of the article.
