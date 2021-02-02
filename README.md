@@ -1,7 +1,7 @@
 # Speech2Phone
 This is the official implementation of the  paper *Speech2Phone: A new and efficient method for training speaker recognition models*
 
-In this repository the Paper directory has the implementation of all the experiments and topologies explored in the article.
+In this repository the "Paper" directory has the implementation of all the experiments and topologies explored in the article.
   The Speech2Phone directory presents the implementation and checkpoints of the best model of the article.
 
 ## Colab Notebook Demos:
@@ -14,11 +14,5 @@ In this repository the Paper directory has the implementation of all the experim
 ## Citation
 
 ```
-@article{casanova2020speech2phone,
-  title={Speech2Phone: A Multilingual and Text Independent Speaker Identification Model},
-  author={Casanova, Edresson and Junior, Arnaldo Candido and Shulby, Christopher and da Silva, Hamilton Pereira and Cordeiro, Alessandro Ferreira and Guedes, Victor de Oliveira and Aluisio, Sandra Maria and others},
-  journal={arXiv preprint arXiv:2002.11213},
-  year={2020}
-}
 
 ```
