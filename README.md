@@ -6,11 +6,14 @@ In this repository the "Paper" directory has the implementation of all the exper
 
 
 ## Datasets download links:
-[Speech2Phone Dataset V1]()
+[Speech2Phone Dataset V1](https://drive.google.com/uc?id=1jiL7uL5zHp4i6pO14jqqe2uzX_IxPJkE&export=download)
 
 [Common Voice ZH (TW)](https://cdn.commonvoice.mozilla.org/cv-corpus-5.1-2020-06-22/zh-HK.tar.gz)
+
 [Common Voice PT](https://cdn.commonvoice.mozilla.org/cv-corpus-5.1-2020-06-22/pt.tar.gz)
+
 [Common Voice ES](https://cdn.commonvoice.mozilla.org/cv-corpus-5.1-2020-06-22/es.tar.gz)
+
 [VCTK removed silence](https://www.dropbox.com/s/9n8sd97qvjijqa1/VCTK-Corpus-Removed-Silence.zip?dl=0)
 
 ## Colab Notebook Demos:
