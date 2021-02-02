@@ -5,7 +5,7 @@ In this repository the "Paper" directory has the implementation of all the exper
   The Speech2Phone directory presents the implementation and checkpoints of the best model of the article.
 
 
-## Datasets downloads links:
+## Datasets download links:
 [Speech2Phone Dataset V1]()
 
 [Common Voice ZH (TW)](https://cdn.commonvoice.mozilla.org/cv-corpus-5.1-2020-06-22/zh-HK.tar.gz)
