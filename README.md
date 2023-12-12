@@ -26,5 +26,25 @@ In this repository the "Paper" directory has the implementation of all the exper
 ## Citation
 
 ```
+@InProceedings{10.1007/978-3-030-91699-2_39,
+author="Casanova, Edresson
+and Candido Junior, Arnaldo
+and Shulby, Christopher
+and de Oliveira, Frederico Santos
+and Gris, Lucas Rafael Stefanel
+and da Silva, Hamilton Pereira
+and Alu{\'i}sio, Sandra Maria
+and Ponti, Moacir Antonelli",
+editor="Britto, Andr{\'e}
+and Valdivia Delgado, Karina",
+title="Speech2Phone: A Novel and Efficient Method for Training Speaker Recognition Models",
+booktitle="Intelligent Systems",
+year="2021",
+publisher="Springer International Publishing",
+address="Cham",
+pages="572--585",
+abstract="In this paper we present an efficient method for training models for speaker recognition using small or under-resourced datasets. This method requires less data than other SOTA (State-Of-The-Art) methods, e.g. the Angular Prototypical and GE2E loss functions, while achieving similar results to those methods. This is done using the knowledge of the reconstruction of a phoneme in the speaker's voice. For this purpose, a new dataset was built, composed of 40 male speakers, who read sentences in Portuguese, totaling approximately 3h. We compare the three best architectures trained using our method to select the best one, which is the one with a shallow architecture. Then, we compared this model with the SOTA method for the speaker recognition task: the Fast ResNet--34 trained with approximately 2,000 h, using the loss functions Angular Prototypical and GE2E. Three experiments were carried out with datasets in different languages. Among these three experiments, our model achieved the second best result in two experiments and the best result in one of them. This highlights the importance of our method, which proved to be a great competitor to SOTA speaker recognition models, with 500x less data and a simpler approach.",
+isbn="978-3-030-91699-2"
+}
 
 ```
